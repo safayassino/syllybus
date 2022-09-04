@@ -4,13 +4,13 @@ import random
 
 def main():
     syllables = []
+    N_syl = 72
     with open('hyphenSyllables.txt', 'r', encoding='utf-8') as in_file:
         for line in in_file.readlines():
-            syllables.append(line.strip())
-    # syllables =['la', 'na', 'so', 'da', 'sa', 'no']
+            syllables.append(line.strip()
     random_syl = []
     pspell = phunspell.Phunspell('it_IT')
-    while len(random_syl) != 72:
+    while len(random_syl) != N_syl:
         choice = random.choice(syllables)
         if len(random_syl) == 0 or choice != random_syl[-1]:
             random_syl.append(choice)
@@ -30,11 +30,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-def trial(word):
-    pspell = phunspell.Phunspell('it_IT')
-    if pspell.lookup(word):
-        print('sì! è italiano')
-    else:
-        print('no, non è italiano')
